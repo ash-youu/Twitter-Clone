@@ -55,7 +55,7 @@ private struct OnboardingCellListView: View {
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.5)
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.3)
             .background(
                 selectedIndex % 2 == 0
                 ? Color.customSky
