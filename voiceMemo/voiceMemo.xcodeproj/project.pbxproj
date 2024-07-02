@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261F1D1D2C318B7300530F5D /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F1D1C2C318B7300530F5D /* Date+.swift */; };
+		261F1D212C318CFB00530F5D /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F1D202C318CFB00530F5D /* CustomNavigationBar.swift */; };
+		261F1D242C318D2900530F5D /* NavigationBtnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F1D232C318D2900530F5D /* NavigationBtnType.swift */; };
+		261F1D272C3190A700530F5D /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F1D262C3190A700530F5D /* Todo.swift */; };
+		261F1D2B2C3191A700530F5D /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F1D2A2C3191A700530F5D /* TodoListView.swift */; };
+		261F1D2D2C3191B600530F5D /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F1D2C2C3191B600530F5D /* TodoListViewModel.swift */; };
+		261F1D2F2C3191C300530F5D /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261F1D2E2C3191C300530F5D /* TodoViewModel.swift */; };
 		268E6C552C2D99500037CDF3 /* voiceMemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E6C542C2D99500037CDF3 /* voiceMemoApp.swift */; };
 		268E6C572C2D99500037CDF3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E6C562C2D99500037CDF3 /* ContentView.swift */; };
 		268E6C592C2D99520037CDF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 268E6C582C2D99520037CDF3 /* Assets.xcassets */; };
@@ -25,6 +32,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		261F1D1C2C318B7300530F5D /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		261F1D202C318CFB00530F5D /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		261F1D232C318D2900530F5D /* NavigationBtnType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBtnType.swift; sourceTree = "<group>"; };
+		261F1D262C3190A700530F5D /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		261F1D2A2C3191A700530F5D /* TodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
+		261F1D2C2C3191B600530F5D /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
+		261F1D2E2C3191C300530F5D /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 		268E6C512C2D99500037CDF3 /* voiceMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = voiceMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		268E6C542C2D99500037CDF3 /* voiceMemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voiceMemoApp.swift; sourceTree = "<group>"; };
 		268E6C562C2D99500037CDF3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +68,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		261F1D1E2C318CD800530F5D /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				261F1D1F2C318CE600530F5D /* NavigationBar */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		261F1D1F2C318CE600530F5D /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				261F1D202C318CFB00530F5D /* CustomNavigationBar.swift */,
+				261F1D232C318D2900530F5D /* NavigationBtnType.swift */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		261F1D252C31909800530F5D /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				261F1D262C3190A700530F5D /* Todo.swift */,
+			);
+			path = Todo;
+			sourceTree = "<group>";
+		};
+		261F1D292C31918000530F5D /* TodoList */ = {
+			isa = PBXGroup;
+			children = (
+				269CE10A2C30057B00D82355 /* Todo */,
+				261F1D2A2C3191A700530F5D /* TodoListView.swift */,
+				261F1D2C2C3191B600530F5D /* TodoListViewModel.swift */,
+			);
+			path = TodoList;
+			sourceTree = "<group>";
+		};
 		268E6C482C2D99500037CDF3 = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +143,8 @@
 		268E6C642C2D9AAF0037CDF3 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				268E6C562C2D99500037CDF3 /* ContentView.swift */,
 				268E6C542C2D99500037CDF3 /* voiceMemoApp.swift */,
+				268E6C562C2D99500037CDF3 /* ContentView.swift */,
 				268E6C652C2D9AC10037CDF3 /* AppDelegate.swift */,
 				268E6C622C2D9A920037CDF3 /* LaunchScreen.storyboard */,
 			);
@@ -106,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				268E6C692C2D9FD70037CDF3 /* Extension */,
+				261F1D1E2C318CD800530F5D /* Component */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -114,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				268E6C6A2C2D9FE50037CDF3 /* Color+.swift */,
+				261F1D1C2C318B7300530F5D /* Date+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -123,6 +174,7 @@
 			children = (
 				269CE1032C30042900D82355 /* Path */,
 				268E6C6E2C2DA0BA0037CDF3 /* Onboarding */,
+				261F1D252C31909800530F5D /* Todo */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -140,7 +192,6 @@
 			children = (
 				268E6C722C2DA13E0037CDF3 /* Onboarding */,
 				269CE10B2C30057E00D82355 /* Memo */,
-				269CE10A2C30057B00D82355 /* Todo */,
 				269CE1092C30057800D82355 /* Home */,
 			);
 			path = Feature;
@@ -149,8 +200,8 @@
 		268E6C722C2DA13E0037CDF3 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				268E6C732C2DA14D0037CDF3 /* OnboardingViewModel.swift */,
 				268E6C762C2DA2790037CDF3 /* OnboardingView.swift */,
+				268E6C732C2DA14D0037CDF3 /* OnboardingViewModel.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -168,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				269CE1102C3005AD00D82355 /* HomeView.swift */,
+				261F1D292C31918000530F5D /* TodoList */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -176,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				269CE10E2C3005A800D82355 /* TodoView.swift */,
+				261F1D2E2C3191C300530F5D /* TodoViewModel.swift */,
 			);
 			path = Todo;
 			sourceTree = "<group>";
@@ -259,16 +312,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261F1D1D2C318B7300530F5D /* Date+.swift in Sources */,
 				269CE10D2C3005A200D82355 /* MemoView.swift in Sources */,
 				268E6C662C2D9AC10037CDF3 /* AppDelegate.swift in Sources */,
 				268E6C742C2DA14D0037CDF3 /* OnboardingViewModel.swift in Sources */,
 				269CE1082C30043C00D82355 /* PathType.swift in Sources */,
+				261F1D242C318D2900530F5D /* NavigationBtnType.swift in Sources */,
 				269CE1052C30043100D82355 /* Path.swift in Sources */,
+				261F1D2B2C3191A700530F5D /* TodoListView.swift in Sources */,
+				261F1D212C318CFB00530F5D /* CustomNavigationBar.swift in Sources */,
 				268E6C702C2DA0CE0037CDF3 /* OnboardingContent.swift in Sources */,
 				268E6C6B2C2D9FE50037CDF3 /* Color+.swift in Sources */,
 				268E6C572C2D99500037CDF3 /* ContentView.swift in Sources */,
+				261F1D272C3190A700530F5D /* Todo.swift in Sources */,
 				268E6C552C2D99500037CDF3 /* voiceMemoApp.swift in Sources */,
 				269CE1112C3005AD00D82355 /* HomeView.swift in Sources */,
+				261F1D2D2C3191B600530F5D /* TodoListViewModel.swift in Sources */,
+				261F1D2F2C3191C300530F5D /* TodoViewModel.swift in Sources */,
 				269CE10F2C3005A800D82355 /* TodoView.swift in Sources */,
 				268E6C772C2DA2790037CDF3 /* OnboardingView.swift in Sources */,
 			);
