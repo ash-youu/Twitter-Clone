@@ -146,7 +146,9 @@ private struct TodoCellView: View {
                 if !todoListViewModel.isEditTodoMode {
                     Button(
                         action: { todoListViewModel.selectedBoxTapped(todo) },
-                        label: { todo.selected ? Image("selectedBox") : Image("unselectedBox.fill")}
+                        label: {
+                            todo.selected ? Image("selectedBox") : Image("unselectedBox")
+                        }
                     )
                 }
                 
@@ -170,7 +172,7 @@ private struct TodoCellView: View {
                             todoListViewModel.todoRemoveSelectedBoxTapped(todo)
                         },
                         label: {
-                            isRemoveSelected ? Image("selectedBox") : Image("unSelectedBox")
+                            isRemoveSelected ? Image("selectedBox") : Image("unselectedBox")
                         }
                     )
                 }
