@@ -63,6 +63,7 @@ extension TodoListViewModel {
             // 삭제할 투두가 있으면
             } else {
                 // 투두 삭제를 위해 얼럿을 불러준다!
+                setIsDisplayRemoveTodoAlert(true)
             }
         // 완료 모드일 때
         } else {
