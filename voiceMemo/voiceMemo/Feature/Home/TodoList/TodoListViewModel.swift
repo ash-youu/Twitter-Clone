@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TodoListViewModel: ObservableObject {
+final class TodoListViewModel: ObservableObject {
     // 테이블뷰에 나타낼 투두 목록
     @Published var todos: [Todo]
     // 투두 편집 모드인지 확인

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TodoViewModel: ObservableObject {
+final class TodoViewModel: ObservableObject {
     @Published var title: String
     @Published var time: Date
     @Published var day: Date

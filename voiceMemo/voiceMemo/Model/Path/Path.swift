@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PathModel: ObservableObject {
+final class PathModel: ObservableObject {
     @Published var paths: [PathType]
     
     init(paths: [PathType] = []) {
