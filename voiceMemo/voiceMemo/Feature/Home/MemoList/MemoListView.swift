@@ -1,27 +1,25 @@
 //
-//  TodoListView.swift
+//  MemoListView.swift
 //  voiceMemo
 //
-//  Created by 유연수 on 2024/06/30.
+//  Created by 유연수 on 2024/07/05.
 //
 
 import SwiftUI
 
-struct TodoListView: View {
+struct MemoListView: View {
     @EnvironmentObject private var pathModel: PathModel
-    @EnvironmentObject private var todoListViewModel: TodoListViewModel
+    @EnvironmentObject private var memoListViewModel: MemoListViewModel
     
     var body: some View {
         ZStack {
-            // 투두 셀 리스트
             VStack {
-                if !todoListViewModel.todos.isEmpty {
+                if !memoListViewModel.memos.isEmpty {
                     CustomNavigationBar(
                         isDisplayLeftBtn: false,
-                        rightBtnAction: {
-                            todoListViewModel.navigationRightBtnTapped()
-                        },
-                        rightBtnType: todoListViewModel.navigationBarRightBtnMode
+                        isDisplayRightBtn: true,
+                        rightBtnAction: memoListViewModel.navigationRightBtnTapped,
+                        rightBtnType: memoListViewModel.navigationBarRightBtnMode
                     )
                 } else {
                     Spacer()
@@ -34,41 +32,43 @@ struct TodoListView: View {
                 Spacer()
                     .frame(height: 20)
                 
-                if todoListViewModel.todos.isEmpty {
+                if memoListViewModel.memos.isEmpty {
                     AnnouncementView()
                     Spacer()
                         .frame(height: UIScreen.main.bounds.height * 0.15)
                 } else {
-                    TodoListContentView()
+                    MemoListContentView()
                 }
             }
             
-            WriteTodoBtnView()
+            WriteMemoBtnView()
                 .padding(.trailing, 20)
                 .padding(.bottom, 50)
         }
         .alert(
-            "To do list \(todoListViewModel.removeTodosCount)개 삭제하시겠습니까?",
-            isPresented: $todoListViewModel.isDisplayRemoveTodoAlert
-        ) {
-            Button("삭제", role: .destructive) {
-                todoListViewModel.removeBtnTapped()
+            Text("메모 \(memoListViewModel.removeMemos.count)개 삭제하시겠습니까?")
+            ,
+            isPresented: $memoListViewModel.isDisplayRemoveMemoAlert,
+            actions: {
+                Button("삭제", role: .destructive) {
+                    memoListViewModel.removeBtnTapped()
+                }
+                Button("취소", role: .cancel) {}
             }
-            Button("취소", role: .cancel) {}
-        }
+        )
     }
 }
 
-// MARK: - TodoList 타이틀 뷰
+// MARK: - MemoList 타이블 뷰
 private struct TitleView: View {
-    @EnvironmentObject private var todoListViewModel: TodoListViewModel
+    @EnvironmentObject private var memoListViewModel: MemoListViewModel
     
     fileprivate var body: some View {
         HStack {
-            if todoListViewModel.todos.isEmpty {
-                Text("To do List를 \n추가해 보세요.")
+            if memoListViewModel.memos.isEmpty {
+                Text("메모를 \n추가해 보세요.")
             } else {
-                Text("To do List \(todoListViewModel.todos.count)개가\n있습니다.")
+                Text("메모 \(memoListViewModel.memos.count)개가 \n있습니다.")
             }
             
             Spacer()
@@ -78,7 +78,7 @@ private struct TitleView: View {
     }
 }
 
-// MARK: - TodoList 안내 뷰
+// MARK: - MemoList 안내 뷰
 private struct AnnouncementView: View {
     fileprivate var body: some View {
         VStack(spacing: 15) {
@@ -86,9 +86,9 @@ private struct AnnouncementView: View {
             
             Image("pencil")
                 .renderingMode(.template)
-            Text("\"매일 아침 5시 운동하자!\"")
-            Text("\"내일 8시 수강 신청하자!\"")
-            Text("\"1시 반 점심약속 리마인드 해보자!\"")
+            Text("\"퇴근 9시간 전 메모\"")
+            Text("\"기획서 작성 후 퇴근하기 메모\"")
+            Text("\"밀린 집안일 하기 메모\"")
             
             Spacer()
         }
@@ -97,14 +97,14 @@ private struct AnnouncementView: View {
     }
 }
 
-// MARK: - TodoList 컨텐츠 뷰
-private struct TodoListContentView: View {
-    @EnvironmentObject private var todoListViewModel: TodoListViewModel
+// MARK: - MemoList 컨텐츠 뷰
+private struct MemoListContentView: View {
+    @EnvironmentObject private var memoListViewModel: MemoListViewModel
     
     fileprivate var body: some View {
         VStack {
             HStack {
-                Text("할일 목록")
+                Text("메모 목록")
                     .font(.system(size: 16, weight: .bold))
                     .padding(.leading, 20)
                 
@@ -117,8 +117,8 @@ private struct TodoListContentView: View {
                         .fill(Color.customGray0)
                         .frame(height: 1)
                     
-                    ForEach(todoListViewModel.todos, id: \.self) { todo in
-                        TodoCellView(todo: todo)
+                    ForEach(memoListViewModel.memos, id: \.id) { memo in
+                        MemoCellView(memo: memo)
                     }
                 }
             }
@@ -126,50 +126,38 @@ private struct TodoListContentView: View {
     }
 }
 
-// MARK: - Todo 셀 뷰
-private struct TodoCellView: View {
-    @EnvironmentObject private var todoListViewModel: TodoListViewModel
+// MARK: - Memo 셀 뷰
+private struct MemoCellView: View {
+    @EnvironmentObject private var memoListViewModel: MemoListViewModel
     @State private var isRemoveSelected: Bool
-    private var todo: Todo
+    private var memo: Memo
     
     fileprivate init(
         isRemoveSelected: Bool = false,
-        todo: Todo
+        memo: Memo
     ) {
         _isRemoveSelected = State(initialValue: isRemoveSelected)
-        self.todo = todo
+        self.memo = memo
     }
     
     fileprivate var body: some View {
         VStack(spacing: 20) {
             HStack {
-                if !todoListViewModel.isEditTodoMode {
-                    Button(
-                        action: { todoListViewModel.selectedBoxTapped(todo) },
-                        label: {
-                            todo.selected ? Image("selectedBox") : Image("unselectedBox")
-                        }
-                    )
-                }
-                
-                VStack(alignment: .leading, spacing: 3) {
-                    Text(todo.title)
+                VStack(alignment: .leading) {
+                    Text("\(memo.title)")
                         .font(.system(size: 16))
-                        .foregroundColor(todo.selected ? .customIconGray : .customBlack)
-                        .strikethrough(todo.selected)
-                    
-                    Text(todo.convertedDayAndTime)
+                    Text(memo.convertedDate)
                         .font(.system(size: 16))
                         .foregroundColor(.customIconGray)
                 }
                 
                 Spacer()
                 
-                if todoListViewModel.isEditTodoMode {
+                if memoListViewModel.isEditMemoMode {
                     Button(
                         action: {
                             isRemoveSelected.toggle()
-                            todoListViewModel.todoRemoveSelectedBoxTapped(todo)
+                            memoListViewModel.memoRemoveSelectedBoxTapped(memo)
                         },
                         label: {
                             isRemoveSelected ? Image("selectedBox") : Image("unselectedBox")
@@ -187,8 +175,8 @@ private struct TodoCellView: View {
     }
 }
 
-// MARK: - Todo 작성 버튼 뷰
-private struct WriteTodoBtnView: View {
+// MARK: - Memo 작성 버튼 뷰
+private struct WriteMemoBtnView: View {
     @EnvironmentObject private var pathModel: PathModel
     
     fileprivate var body: some View {
@@ -200,7 +188,7 @@ private struct WriteTodoBtnView: View {
                 
                 Button(
                     action: {
-                        pathModel.paths.append(.todoView)
+                        pathModel.paths.append(.memoView)
                     },
                     label: {
                         Image("writeBtn")
@@ -211,10 +199,10 @@ private struct WriteTodoBtnView: View {
     }
 }
 
-struct TodoListView_Previews: PreviewProvider {
+struct MemoListView_Previews: PreviewProvider {
     static var previews: some View {
-        TodoListView()
+        MemoListView()
             .environmentObject(PathModel())
-            .environmentObject(TodoListViewModel())
+            .environmentObject(MemoListViewModel())
     }
 }

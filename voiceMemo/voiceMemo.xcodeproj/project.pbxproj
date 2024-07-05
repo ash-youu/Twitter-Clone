@@ -24,6 +24,10 @@
 		268E6C702C2DA0CE0037CDF3 /* OnboardingContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E6C6F2C2DA0CE0037CDF3 /* OnboardingContent.swift */; };
 		268E6C742C2DA14D0037CDF3 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E6C732C2DA14D0037CDF3 /* OnboardingViewModel.swift */; };
 		268E6C772C2DA2790037CDF3 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268E6C762C2DA2790037CDF3 /* OnboardingView.swift */; };
+		2695361B2C36FBF400081B8B /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2695361A2C36FBF400081B8B /* Memo.swift */; };
+		269536202C36FCC400081B8B /* MemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2695361F2C36FCC400081B8B /* MemoViewModel.swift */; };
+		269536222C36FCCB00081B8B /* MemoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269536212C36FCCB00081B8B /* MemoListViewModel.swift */; };
+		269536252C36FCD600081B8B /* MemoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269536242C36FCD600081B8B /* MemoListView.swift */; };
 		269CE1052C30043100D82355 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269CE1042C30043100D82355 /* Path.swift */; };
 		269CE1082C30043C00D82355 /* PathType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269CE1072C30043C00D82355 /* PathType.swift */; };
 		269CE10D2C3005A200D82355 /* MemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269CE10C2C3005A200D82355 /* MemoView.swift */; };
@@ -50,6 +54,10 @@
 		268E6C6F2C2DA0CE0037CDF3 /* OnboardingContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContent.swift; sourceTree = "<group>"; };
 		268E6C732C2DA14D0037CDF3 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		268E6C762C2DA2790037CDF3 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		2695361A2C36FBF400081B8B /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		2695361F2C36FCC400081B8B /* MemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewModel.swift; sourceTree = "<group>"; };
+		269536212C36FCCB00081B8B /* MemoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListViewModel.swift; sourceTree = "<group>"; };
+		269536242C36FCD600081B8B /* MemoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListView.swift; sourceTree = "<group>"; };
 		269CE1042C30043100D82355 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		269CE1072C30043C00D82355 /* PathType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathType.swift; sourceTree = "<group>"; };
 		269CE10C2C3005A200D82355 /* MemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoView.swift; sourceTree = "<group>"; };
@@ -175,6 +183,7 @@
 				269CE1032C30042900D82355 /* Path */,
 				268E6C6E2C2DA0BA0037CDF3 /* Onboarding */,
 				261F1D252C31909800530F5D /* Todo */,
+				269536192C36FBD300081B8B /* Memo */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				268E6C722C2DA13E0037CDF3 /* Onboarding */,
-				269CE10B2C30057E00D82355 /* Memo */,
 				269CE1092C30057800D82355 /* Home */,
 			);
 			path = Feature;
@@ -204,6 +212,23 @@
 				268E6C732C2DA14D0037CDF3 /* OnboardingViewModel.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		269536192C36FBD300081B8B /* Memo */ = {
+			isa = PBXGroup;
+			children = (
+				2695361A2C36FBF400081B8B /* Memo.swift */,
+			);
+			path = Memo;
+			sourceTree = "<group>";
+		};
+		2695361C2C36FC8F00081B8B /* Memo */ = {
+			isa = PBXGroup;
+			children = (
+				269CE10C2C3005A200D82355 /* MemoView.swift */,
+				2695361F2C36FCC400081B8B /* MemoViewModel.swift */,
+			);
+			path = Memo;
 			sourceTree = "<group>";
 		};
 		269CE1032C30042900D82355 /* Path */ = {
@@ -220,6 +245,7 @@
 			children = (
 				269CE1102C3005AD00D82355 /* HomeView.swift */,
 				261F1D292C31918000530F5D /* TodoList */,
+				269CE10B2C30057E00D82355 /* MemoList */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -233,12 +259,14 @@
 			path = Todo;
 			sourceTree = "<group>";
 		};
-		269CE10B2C30057E00D82355 /* Memo */ = {
+		269CE10B2C30057E00D82355 /* MemoList */ = {
 			isa = PBXGroup;
 			children = (
-				269CE10C2C3005A200D82355 /* MemoView.swift */,
+				2695361C2C36FC8F00081B8B /* Memo */,
+				269536242C36FCD600081B8B /* MemoListView.swift */,
+				269536212C36FCCB00081B8B /* MemoListViewModel.swift */,
 			);
-			path = Memo;
+			path = MemoList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +346,7 @@
 				268E6C742C2DA14D0037CDF3 /* OnboardingViewModel.swift in Sources */,
 				269CE1082C30043C00D82355 /* PathType.swift in Sources */,
 				261F1D242C318D2900530F5D /* NavigationBtnType.swift in Sources */,
+				269536252C36FCD600081B8B /* MemoListView.swift in Sources */,
 				269CE1052C30043100D82355 /* Path.swift in Sources */,
 				261F1D2B2C3191A700530F5D /* TodoListView.swift in Sources */,
 				261F1D212C318CFB00530F5D /* CustomNavigationBar.swift in Sources */,
@@ -327,10 +356,13 @@
 				261F1D272C3190A700530F5D /* Todo.swift in Sources */,
 				268E6C552C2D99500037CDF3 /* voiceMemoApp.swift in Sources */,
 				269CE1112C3005AD00D82355 /* HomeView.swift in Sources */,
+				269536202C36FCC400081B8B /* MemoViewModel.swift in Sources */,
 				261F1D2D2C3191B600530F5D /* TodoListViewModel.swift in Sources */,
 				261F1D2F2C3191C300530F5D /* TodoViewModel.swift in Sources */,
 				269CE10F2C3005A800D82355 /* TodoView.swift in Sources */,
 				268E6C772C2DA2790037CDF3 /* OnboardingView.swift in Sources */,
+				269536222C36FCCB00081B8B /* MemoListViewModel.swift in Sources */,
+				2695361B2C36FBF400081B8B /* Memo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

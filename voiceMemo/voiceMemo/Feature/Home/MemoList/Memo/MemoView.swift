@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct MemoView: View {
+    @EnvironmentObject private var pathModel: PathModel
+    @EnvironmentObject private var todoListViewModel: TodoListViewModel
+    @StateObject private var todoViewModel = TodoViewModel()
+    
     var body: some View {
         Text("MemoView")
     }
