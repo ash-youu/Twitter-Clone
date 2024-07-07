@@ -28,24 +28,7 @@ final class MemoListViewModel: ObservableObject {
     }
     
     init(
-        // TODO: 추후 더미 데이터 삭제
-        memos: [Memo] = [
-            Memo(
-                title: "퇴근 후 도서관 들르기",
-                content: "꼭꼭!!!",
-                date: Date()
-            ),
-            Memo(
-                title: "퇴근 후 도서관 들르기",
-                content: "꼭꼭!!!",
-                date: Date()
-            ),
-            Memo(
-                title: "퇴근 후 도서관 들르기",
-                content: "꼭꼭!!!",
-                date: Date()
-            ),
-        ],
+        memos: [Memo] = [],
         isEditMemoMode: Bool = false,
         removeMemos: [Memo] = [],
         isDisplayRemoveMemoAlert: Bool = false
@@ -60,6 +43,18 @@ final class MemoListViewModel: ObservableObject {
 extension MemoListViewModel {
     func addMemo(_ memo: Memo) {
         memos.append(memo)
+    }
+    
+    func updateMemo(_ memo: Memo) {
+        if let index = memos.firstIndex(where: { $0.id == memo.id }) {
+            memos[index] = memo
+        }
+    }
+    
+    func removeMemo(_ memo: Memo) {
+        if let index = memos.firstIndex(where: { $0.id == memo.id }) {
+            memos.remove(at: index)
+        }
     }
     
     func navigationRightBtnTapped() {

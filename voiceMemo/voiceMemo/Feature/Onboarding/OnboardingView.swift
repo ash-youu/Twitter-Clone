@@ -31,10 +31,15 @@ struct OnboardingView: View {
                             TodoView()
                                 .navigationBarBackButtonHidden()
                                 .environmentObject(todoListViewModel)
-                        case .memoView:
-                            MemoView()
-                                .navigationBarBackButtonHidden()
-                                .environmentObject(memoListViewModel)
+                        case let .memoView(isCreateMode, memo):
+                            MemoView(
+                                memoViewModel: isCreateMode
+                                ? .init(memo: .init(title: "", content: "", date: .now))
+                                : .init(memo: memo ?? .init(title: "", content: "", date: .now)),
+                                isCreateMode: isCreateMode
+                            )
+                            .navigationBarBackButtonHidden()
+                            .environmentObject(memoListViewModel)
                         }
                     })
         }

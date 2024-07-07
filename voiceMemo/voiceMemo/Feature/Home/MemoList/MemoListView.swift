@@ -46,7 +46,7 @@ struct MemoListView: View {
                 .padding(.bottom, 50)
         }
         .alert(
-            Text("메모 \(memoListViewModel.removeMemos.count)개 삭제하시겠습니까?")
+            Text("메모 \(memoListViewModel.removeMemosCount)개 삭제하시겠습니까?")
             ,
             isPresented: $memoListViewModel.isDisplayRemoveMemoAlert,
             actions: {
@@ -128,6 +128,7 @@ private struct MemoListContentView: View {
 
 // MARK: - Memo 셀 뷰
 private struct MemoCellView: View {
+    @EnvironmentObject private var pathModel: PathModel
     @EnvironmentObject private var memoListViewModel: MemoListViewModel
     @State private var isRemoveSelected: Bool
     private var memo: Memo
@@ -141,37 +142,47 @@ private struct MemoCellView: View {
     }
     
     fileprivate var body: some View {
-        VStack(spacing: 20) {
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("\(memo.title)")
-                        .font(.system(size: 16))
-                    Text(memo.convertedDate)
-                        .font(.system(size: 16))
-                        .foregroundColor(.customIconGray)
-                }
-                
-                Spacer()
-                
-                if memoListViewModel.isEditMemoMode {
-                    Button(
-                        action: {
-                            isRemoveSelected.toggle()
-                            memoListViewModel.memoRemoveSelectedBoxTapped(memo)
-                        },
-                        label: {
-                            isRemoveSelected ? Image("selectedBox") : Image("unselectedBox")
+        Button(
+            action: {
+                pathModel.paths.append(.memoView(isCreateMode: false, memo: memo))
+            },
+            label: {
+                VStack(spacing: 10) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(memo.title)
+                                .lineLimit(1)
+                                .font(.system(size: 16))
+                                .foregroundColor(.customBlack)
+                            
+                            Text(memo.convertedDate)
+                                .font(.system(size: 12))
+                                .foregroundColor(.customIconGray)
                         }
-                    )
+                        
+                        Spacer()
+                        
+                        if memoListViewModel.isEditMemoMode {
+                            Button(
+                                action: {
+                                    isRemoveSelected.toggle()
+                                    memoListViewModel.memoRemoveSelectedBoxTapped(memo)
+                                },
+                                label: {
+                                    isRemoveSelected ? Image("selectedBox") : Image("unselectedBox")
+                                }
+                            )
+                        }
+                    }
+                    .padding(.horizontal, 30)
+                    .padding(.top, 10)
+                    
+                    Rectangle()
+                        .fill(Color.customGray0)
+                        .frame(height: 1)
                 }
             }
-        }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 10)
-        
-        Rectangle()
-            .fill(Color.customGray0)
-            .frame(height: 1)
+        )
     }
 }
 
@@ -188,7 +199,7 @@ private struct WriteMemoBtnView: View {
                 
                 Button(
                     action: {
-                        pathModel.paths.append(.memoView)
+                        pathModel.paths.append(.memoView(isCreateMode: true, memo: nil))
                     },
                     label: {
                         Image("writeBtn")

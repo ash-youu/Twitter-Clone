@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+final class MemoViewModel: ObservableObject {
+    @Published var memo: Memo
+    
+    init(memo: Memo) {
+        self.memo = memo
+    }
+}
