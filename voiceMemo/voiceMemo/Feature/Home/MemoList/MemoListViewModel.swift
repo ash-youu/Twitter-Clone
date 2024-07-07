@@ -17,7 +17,7 @@ final class MemoListViewModel: ObservableObject {
     // 삭제 확인 얼럿을 표시할 것인지
     @Published var isDisplayRemoveMemoAlert: Bool
     
-    // 삭제할 투두의 개수(얼럿창에 표시 필요)
+    // 삭제할 메모의 개수(얼럿창에 표시 필요)
     var removeMemosCount: Int {
         return removeMemos.count
     }
@@ -71,8 +71,8 @@ extension MemoListViewModel {
                 isEditMemoMode = false
                 // 삭제할 메모가 있으면
             } else {
-                // 투두 삭제를 위해 얼럿을 불러준다!
-                setIsDisplayRemoveTodoAlert(true)
+                // 메모 삭제를 위해 얼럿을 불러준다!
+                setIsDisplayRemoveMemoAlert(true)
             }
         // 완료 모드일 때
         } else {
@@ -81,7 +81,7 @@ extension MemoListViewModel {
         }
     }
     
-    func setIsDisplayRemoveTodoAlert(_ isDisplay: Bool) {
+    func setIsDisplayRemoveMemoAlert(_ isDisplay: Bool) {
         isDisplayRemoveMemoAlert = isDisplay
     }
     
