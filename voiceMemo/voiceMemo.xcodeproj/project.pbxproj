@@ -33,6 +33,9 @@
 		269CE10D2C3005A200D82355 /* MemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269CE10C2C3005A200D82355 /* MemoView.swift */; };
 		269CE10F2C3005A800D82355 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269CE10E2C3005A800D82355 /* TodoView.swift */; };
 		269CE1112C3005AD00D82355 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269CE1102C3005AD00D82355 /* HomeView.swift */; };
+		26A7D0392C3D61F30074EF1F /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A7D0382C3D61F30074EF1F /* Double+.swift */; };
+		26A7D03C2C3D62AB0074EF1F /* VoiceRecorderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A7D03B2C3D62AB0074EF1F /* VoiceRecorderViewModel.swift */; };
+		26A7D03E2C3D62CC0074EF1F /* VoiceRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A7D03D2C3D62CC0074EF1F /* VoiceRecorderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +66,9 @@
 		269CE10C2C3005A200D82355 /* MemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoView.swift; sourceTree = "<group>"; };
 		269CE10E2C3005A800D82355 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
 		269CE1102C3005AD00D82355 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		26A7D0382C3D61F30074EF1F /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
+		26A7D03B2C3D62AB0074EF1F /* VoiceRecorderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecorderViewModel.swift; sourceTree = "<group>"; };
+		26A7D03D2C3D62CC0074EF1F /* VoiceRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecorderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +138,9 @@
 			children = (
 				268E6C642C2D9AAF0037CDF3 /* App */,
 				268E6C682C2D9FD50037CDF3 /* Core */,
-				268E6C6C2C2DA08D0037CDF3 /* Model */,
+				261F1D1E2C318CD800530F5D /* Component */,
 				268E6C712C2DA1350037CDF3 /* Feature */,
+				268E6C6C2C2DA08D0037CDF3 /* Model */,
 				268E6C582C2D99520037CDF3 /* Assets.xcassets */,
 				268E6C5A2C2D99520037CDF3 /* Preview Content */,
 			);
@@ -163,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				268E6C692C2D9FD70037CDF3 /* Extension */,
-				261F1D1E2C318CD800530F5D /* Component */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -173,6 +179,7 @@
 			children = (
 				268E6C6A2C2D9FE50037CDF3 /* Color+.swift */,
 				261F1D1C2C318B7300530F5D /* Date+.swift */,
+				26A7D0382C3D61F30074EF1F /* Double+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -246,6 +253,7 @@
 				269CE1102C3005AD00D82355 /* HomeView.swift */,
 				261F1D292C31918000530F5D /* TodoList */,
 				269CE10B2C30057E00D82355 /* MemoList */,
+				26A7D03A2C3D62790074EF1F /* VoiceRecorder */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -267,6 +275,15 @@
 				269536212C36FCCB00081B8B /* MemoListViewModel.swift */,
 			);
 			path = MemoList;
+			sourceTree = "<group>";
+		};
+		26A7D03A2C3D62790074EF1F /* VoiceRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				26A7D03D2C3D62CC0074EF1F /* VoiceRecorderView.swift */,
+				26A7D03B2C3D62AB0074EF1F /* VoiceRecorderViewModel.swift */,
+			);
+			path = VoiceRecorder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,7 +358,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				261F1D1D2C318B7300530F5D /* Date+.swift in Sources */,
+				26A7D03E2C3D62CC0074EF1F /* VoiceRecorderView.swift in Sources */,
 				269CE10D2C3005A200D82355 /* MemoView.swift in Sources */,
+				26A7D03C2C3D62AB0074EF1F /* VoiceRecorderViewModel.swift in Sources */,
 				268E6C662C2D9AC10037CDF3 /* AppDelegate.swift in Sources */,
 				268E6C742C2DA14D0037CDF3 /* OnboardingViewModel.swift in Sources */,
 				269CE1082C30043C00D82355 /* PathType.swift in Sources */,
@@ -362,6 +381,7 @@
 				269CE10F2C3005A800D82355 /* TodoView.swift in Sources */,
 				268E6C772C2DA2790037CDF3 /* OnboardingView.swift in Sources */,
 				269536222C36FCCB00081B8B /* MemoListViewModel.swift in Sources */,
+				26A7D0392C3D61F30074EF1F /* Double+.swift in Sources */,
 				2695361B2C36FBF400081B8B /* Memo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
