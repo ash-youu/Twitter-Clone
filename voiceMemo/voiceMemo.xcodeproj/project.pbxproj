@@ -36,6 +36,10 @@
 		26A7D0392C3D61F30074EF1F /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A7D0382C3D61F30074EF1F /* Double+.swift */; };
 		26A7D03C2C3D62AB0074EF1F /* VoiceRecorderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A7D03B2C3D62AB0074EF1F /* VoiceRecorderViewModel.swift */; };
 		26A7D03E2C3D62CC0074EF1F /* VoiceRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A7D03D2C3D62CC0074EF1F /* VoiceRecorderView.swift */; };
+		26EDB82B2C45671900AECFC7 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB82A2C45671900AECFC7 /* Time.swift */; };
+		26EDB82D2C4567C500AECFC7 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB82C2C4567C500AECFC7 /* Int+.swift */; };
+		26EDB8302C4568D000AECFC7 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB82F2C4568D000AECFC7 /* TimerView.swift */; };
+		26EDB8322C4568DA00AECFC7 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB8312C4568DA00AECFC7 /* TimerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -187,6 +191,7 @@
 		268E6C6C2C2DA08D0037CDF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				26EDB8292C45671000AECFC7 /* Timer */,
 				269CE1032C30042900D82355 /* Path */,
 				268E6C6E2C2DA0BA0037CDF3 /* Onboarding */,
 				261F1D252C31909800530F5D /* Todo */,
@@ -284,6 +289,23 @@
 				26A7D03B2C3D62AB0074EF1F /* VoiceRecorderViewModel.swift */,
 			);
 			path = VoiceRecorder;
+			sourceTree = "<group>";
+		};
+		26EDB8292C45671000AECFC7 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				26EDB82A2C45671900AECFC7 /* Time.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		26EDB82E2C4568C200AECFC7 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				26EDB82F2C4568D000AECFC7 /* TimerView.swift */,
+				26EDB8312C4568DA00AECFC7 /* TimerViewModel.swift */,
+			);
+			path = Timer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
