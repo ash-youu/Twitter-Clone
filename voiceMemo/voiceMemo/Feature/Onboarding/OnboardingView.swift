@@ -13,6 +13,7 @@ struct OnboardingView: View {
     @StateObject private var todoListViewModel = TodoListViewModel()
     @StateObject private var memoListViewModel = MemoListViewModel()
     @StateObject private var voiceRecorderViewModel = VoiceRecorderViewModel()
+    @StateObject private var timerViewModel = TimerViewModel()
     
     var body: some View {
         NavigationStack(path: $pathModel.paths) {
@@ -26,7 +27,7 @@ struct OnboardingView: View {
                         case .homeView:
                             HomeView()
                                 .navigationBarBackButtonHidden()
-                                .environmentObject(voiceRecorderViewModel)
+                                .environmentObject(timerViewModel)
                         case .todoView:
                             TodoView()
                                 .navigationBarBackButtonHidden()
