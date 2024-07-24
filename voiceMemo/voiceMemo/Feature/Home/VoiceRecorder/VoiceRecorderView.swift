@@ -9,11 +9,16 @@ import SwiftUI
 
 struct VoiceRecorderView: View {
     @StateObject private var voiceRecorderViewModel = VoiceRecorderViewModel()
+    @EnvironmentObject private var homeViewModel: HomeViewModel
     
     var body: some View {
         ZStack {
             VStack {
+                Spacer()
+                    .frame(height: 30)
+                
                 TitleView()
+                    .padding(.top, 20)
                 
                 if voiceRecorderViewModel.recordedFiles.isEmpty {
                     AnnouncementView()
@@ -42,6 +47,12 @@ struct VoiceRecorderView: View {
         ) {
             Button("확인", role: .cancel) {}
         }
+        .onChange(
+            of: voiceRecorderViewModel.recordedFiles,
+            perform: { recordedFiles in
+                homeViewModel.setVoiceRecordersCount(recordedFiles.count)
+            }
+        )
     }
 }
 
@@ -49,13 +60,11 @@ private struct TitleView: View {
     fileprivate var body: some View {
         HStack {
             Text("음성메모")
-                .font(.system(size: 30, weight: .bold))
-                .foregroundColor(.customBlack)
             
             Spacer()
         }
-        .padding(.horizontal, 30)
-        .padding(.top, 30)
+        .font(.system(size: 30, weight: .bold))
+        .padding(.leading, 20)
     }
 }
 

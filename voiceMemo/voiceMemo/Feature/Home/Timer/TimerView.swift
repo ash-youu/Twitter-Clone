@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TimerView: View {
-    @EnvironmentObject private var timerViewModel: TimerViewModel
+    @StateObject private var timerViewModel = TimerViewModel()
     
     var body: some View {
         if timerViewModel.isDisplaySetTimeView {
@@ -28,7 +28,11 @@ private struct SetTimerView: View {
     
     fileprivate var body: some View {
         VStack {
+            Spacer()
+                .frame(height: 30)
+            
             TitleView()
+                .padding(.top, 20)
             
             Spacer()
                 .frame(height: 50)
@@ -50,13 +54,11 @@ private struct TitleView: View {
     fileprivate var body: some View {
         HStack {
             Text("타이머")
-                .font(.system(size: 30, weight: .bold))
-                .foregroundColor(.customBlack)
             
             Spacer()
         }
-        .padding(.horizontal, 30)
-        .padding(.top, 30)
+        .font(.system(size: 30, weight: .bold))
+        .padding(.leading, 20)
     }
 }
 

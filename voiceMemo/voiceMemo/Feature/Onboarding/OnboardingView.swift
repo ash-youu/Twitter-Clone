@@ -12,14 +12,10 @@ struct OnboardingView: View {
     @StateObject private var onboardingViewModel = OnboardingViewModel()
     @StateObject private var todoListViewModel = TodoListViewModel()
     @StateObject private var memoListViewModel = MemoListViewModel()
-    @StateObject private var voiceRecorderViewModel = VoiceRecorderViewModel()
-    @StateObject private var timerViewModel = TimerViewModel()
     
     var body: some View {
         NavigationStack(path: $pathModel.paths) {
             OnboardingContentView(onboardingViewModel: onboardingViewModel)
-                .environmentObject(pathModel)
-                .environmentObject(todoListViewModel)
                 .navigationDestination(
                     for: PathType.self,
                     destination: { pathType in
@@ -27,7 +23,8 @@ struct OnboardingView: View {
                         case .homeView:
                             HomeView()
                                 .navigationBarBackButtonHidden()
-                                .environmentObject(timerViewModel)
+                                .environmentObject(todoListViewModel)
+                                .environmentObject(memoListViewModel)
                         case .todoView:
                             TodoView()
                                 .navigationBarBackButtonHidden()
@@ -69,7 +66,7 @@ private struct OnboardingContentView: View {
 // MARK: - 온보딩 셀 리스트 뷰
 private struct OnboardingCellListView: View {
     @ObservedObject private var onboardingViewModel: OnboardingViewModel
-    @State private var selectedIndex: Int // 인덱스 값에 따라 탭뷰가 달라질 예정
+    @State private var selectedIndex: Int
     
     init(onboardingViewModel: OnboardingViewModel, selectedIndex: Int = 0) {
         self.onboardingViewModel = onboardingViewModel

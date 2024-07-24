@@ -28,7 +28,7 @@ final class TodoListViewModel: ObservableObject {
     }
     
     init(
-        todos: [Todo] = [Todo(title: "test", time: Date(), day: Date(), selected: false)],
+        todos: [Todo] = [],
         isEditTodoMode: Bool = false,
         removeTodos: [Todo] = [],
         isDisplayRemoveTodoAlert: Bool = false
