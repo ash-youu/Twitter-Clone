@@ -33,6 +33,7 @@
 		269CE10D2C3005A200D82355 /* MemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269CE10C2C3005A200D82355 /* MemoView.swift */; };
 		269CE10F2C3005A800D82355 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269CE10E2C3005A800D82355 /* TodoView.swift */; };
 		269CE1112C3005AD00D82355 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269CE1102C3005AD00D82355 /* HomeView.swift */; };
+		269E7F1F2C567ECF0073122B /* WriteBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269E7F1E2C567ECF0073122B /* WriteBtn.swift */; };
 		26A4414B2C495FBB00260511 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A4414A2C495FBB00260511 /* NotificationService.swift */; };
 		26A69D8F2C51437200606C15 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A69D8E2C51437200606C15 /* Tab.swift */; };
 		26A69D912C51439600606C15 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A69D902C51439600606C15 /* HomeViewModel.swift */; };
@@ -74,6 +75,7 @@
 		269CE10C2C3005A200D82355 /* MemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoView.swift; sourceTree = "<group>"; };
 		269CE10E2C3005A800D82355 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
 		269CE1102C3005AD00D82355 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		269E7F1E2C567ECF0073122B /* WriteBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteBtn.swift; sourceTree = "<group>"; };
 		26A4414A2C495FBB00260511 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		26A69D8E2C51437200606C15 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		26A69D902C51439600606C15 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		26924E892C46C2F3000AC92A /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				269E7F1D2C567EBD0073122B /* CustomView */,
 				26924E8A2C46C2F6000AC92A /* NavigationBar */,
 			);
 			path = Component;
@@ -298,6 +301,14 @@
 				269536212C36FCCB00081B8B /* MemoListViewModel.swift */,
 			);
 			path = MemoList;
+			sourceTree = "<group>";
+		};
+		269E7F1D2C567EBD0073122B /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				269E7F1E2C567ECF0073122B /* WriteBtn.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		26A441492C495FAD00260511 /* Service */ = {
@@ -451,6 +462,7 @@
 				269CE10F2C3005A800D82355 /* TodoView.swift in Sources */,
 				26A69D8F2C51437200606C15 /* Tab.swift in Sources */,
 				26EDB8302C4568D000AECFC7 /* TimerView.swift in Sources */,
+				269E7F1F2C567ECF0073122B /* WriteBtn.swift in Sources */,
 				268E6C772C2DA2790037CDF3 /* OnboardingView.swift in Sources */,
 				269536222C36FCCB00081B8B /* MemoListViewModel.swift in Sources */,
 				26A7D0392C3D61F30074EF1F /* Double+.swift in Sources */,
